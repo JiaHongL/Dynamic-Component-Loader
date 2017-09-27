@@ -1,0 +1,27 @@
+.page {
+  margin: 5px 80px 5px 80px;
+  .page-header {
+    .menu {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      background: #808080;
+      height: 50px;
+      ul {
+        flex: 1 1 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        li {
+          flex: 0 0 80px;
+          a {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  .page-content {
+    padding:30px;
+  }
+}
