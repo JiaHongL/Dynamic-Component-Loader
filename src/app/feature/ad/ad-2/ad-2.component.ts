@@ -27,12 +27,14 @@ export class Ad2Component implements  OnInit, OnDestroy {
     return this._IsAutoplay;
   }
 
-
   @Output() CloseEvent = new EventEmitter();
+
   constructor(public sanitizer: DomSanitizer) {}
+
   colse() {
     this.CloseEvent.emit();
   }
+
   ngOnInit() {
     console.log('Ad2Component Created :' + new Date());
   }

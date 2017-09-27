@@ -20,9 +20,11 @@ export class Ad1Component implements OnInit, OnDestroy {
   @Output() CloseEvent = new EventEmitter();
 
   constructor() {}
+  
   colse() {
     this.CloseEvent.emit();
   }
+
   ngOnInit() {
     console.log('Ad1Component Created :' + new Date());
   }

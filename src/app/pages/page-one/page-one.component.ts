@@ -17,6 +17,7 @@ export class PageOneComponent implements OnInit, OnDestroy, AfterContentInit {
   CloseSubscription: Subscription;
   JoinSubscription: Subscription;
   @ViewChild(AdDirective) componentHost: AdDirective;
+
   constructor(
     private NgxLoremIpsumService: NgxLoremIpsumService,
     private AdService: AdService,
@@ -25,7 +26,6 @@ export class PageOneComponent implements OnInit, OnDestroy, AfterContentInit {
     this.randomTitle = this.NgxLoremIpsumService.get(1);
     this.randomText = this.NgxLoremIpsumService.getRandom(15, 40, 3);
   }
-
 
   ngAfterContentInit() {
     const viewContainerRef = this.componentHost.viewContainerRef;
@@ -70,12 +70,14 @@ export class PageOneComponent implements OnInit, OnDestroy, AfterContentInit {
     let close$ = this.AdService.getOutput('CloseEvent');
     this.CloseSubscription = close$.subscribe((event) => { this.AdService.onClear(); });
   }
+
   getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
+
   ngOnInit() {
   }
-
+  
   ngOnDestroy() {
     this.AdService.onDestroy();
     if (this.CloseSubscription) { this.CloseSubscription.unsubscribe(); }

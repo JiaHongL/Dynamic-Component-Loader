@@ -9,7 +9,6 @@ export class PageSignupComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

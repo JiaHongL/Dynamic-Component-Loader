@@ -16,6 +16,7 @@ export class PageTwoComponent implements OnInit, AfterContentInit, OnDestroy {
   randomText: string;
   randomTitle: string;
   @ViewChild(AdDirective) componentHost: AdDirective;
+
   constructor(
     private NgxLoremIpsumService: NgxLoremIpsumService,
     private AdService: AdService,
@@ -82,4 +83,5 @@ export class PageTwoComponent implements OnInit, AfterContentInit, OnDestroy {
     if (this.CloseSubscription) { this.CloseSubscription.unsubscribe(); }
     if (this.JoinSubscription) { this.JoinSubscription.unsubscribe(); }
   }
+  
 }

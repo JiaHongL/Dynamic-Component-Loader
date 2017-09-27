@@ -14,12 +14,15 @@ export class Ad3Component implements OnInit ,OnDestroy {
     //   this.JoinEvent.emit();
     // },1000);
   }
+
   colse() {
     this.CloseEvent.emit();
   }
+
   join(){
     this.JoinEvent.emit();
   }
+  
   ngOnInit() {
     console.log('Ad3Component Created :' + new Date());
   }
