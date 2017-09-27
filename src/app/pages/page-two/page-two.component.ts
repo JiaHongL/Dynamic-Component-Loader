@@ -27,9 +27,7 @@ export class PageTwoComponent implements OnInit, AfterContentInit, OnDestroy {
   }
 
   createAD(type: number) {
-    if (this.CloseSubscription) { this.AdService.onDestroy(); this.CloseSubscription.unsubscribe(); }
-    if (this.JoinSubscription) { this.JoinSubscription.unsubscribe(); }
-
+    this.allSubscriptionUnsubscribe();
     const viewContainerRef = this.componentHost.viewContainerRef;
     let params = [];
     switch (type) {
@@ -71,6 +69,12 @@ export class PageTwoComponent implements OnInit, AfterContentInit, OnDestroy {
     this.CloseSubscription = close$.subscribe((event) => { this.AdService.onClear(); });
   }
 
+  allSubscriptionUnsubscribe() {
+    if (this.CloseSubscription) { this.CloseSubscription.unsubscribe(); }
+    if (this.JoinSubscription) { this.JoinSubscription.unsubscribe(); }
+    if (this.AdService.isPresent()) { this.AdService.onDestroy(); }
+  }
+
   ngAfterContentInit() {
     this.createAD(3);
   }
@@ -79,9 +83,7 @@ export class PageTwoComponent implements OnInit, AfterContentInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.AdService.onDestroy();
-    if (this.CloseSubscription) { this.CloseSubscription.unsubscribe(); }
-    if (this.JoinSubscription) { this.JoinSubscription.unsubscribe(); }
+    this.allSubscriptionUnsubscribe();
   }
-  
+
 }

@@ -54,9 +54,14 @@ export class AdService {
     return this.currentComponentRef.instance[OutputName];
   }
 
+  isPresent(){
+    return this.currentComponentRef;
+  }
+
   // 被創建Component的ondestroy
   onDestroy() {
     this.currentComponentRef.destroy();
+    console.log('this.currentComponentRef.destroy()');
   }
 
   // 清除view 和 被創建Component的ondestroy

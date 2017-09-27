@@ -55,7 +55,7 @@ export class PageOneComponent implements OnInit, OnDestroy, AfterContentInit {
       case 3:
         this.AdService.creatComponent(viewContainerRef, 'ad3');
         let join$ = this.AdService.getOutput('JoinEvent');
-        this.JoinSubscription = join$.subscribe((event) => { this.router.navigate(['/join']); });
+        this.JoinSubscription = join$.subscribe((event) => { this.router.navigate(['/join']);});
         break;
 
       default:
@@ -68,20 +68,27 @@ export class PageOneComponent implements OnInit, OnDestroy, AfterContentInit {
     }
     // 關閉Ad
     let close$ = this.AdService.getOutput('CloseEvent');
-    this.CloseSubscription = close$.subscribe((event) => { this.AdService.onClear(); });
+    this.CloseSubscription = close$.subscribe((event) => { 
+      this.AdService.onClear(); 
+      this.allSubscriptionUnsubscribe();
+    });
   }
 
   getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  ngOnInit() {
-  }
-  
-  ngOnDestroy() {
-    this.AdService.onDestroy();
+  allSubscriptionUnsubscribe(){
     if (this.CloseSubscription) { this.CloseSubscription.unsubscribe(); }
     if (this.JoinSubscription) { this.JoinSubscription.unsubscribe(); }
+    if (this.AdService.isPresent()) { this.AdService.onDestroy(); }
+  }
+
+  ngOnInit() {
+  }
+
+  ngOnDestroy() {
+    this.allSubscriptionUnsubscribe();
   }
 
 }
