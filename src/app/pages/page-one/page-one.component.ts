@@ -35,10 +35,27 @@ export class PageOneComponent implements OnInit, OnDestroy, AfterContentInit {
       case 1:
         params = [{
           'InputName': 'Title',
-          'InputData': 'Ad文字'
+          'InputData': '速度:2s'
+        }, {
+          'InputName': 'BannerList',
+          'InputData': [{
+            url: 'assets/images/banner1.png'
+          }, {
+            url: 'assets/images/banner2.png'
+          }, {
+            url: 'assets/images/banner3.png'
+          },{
+            url: 'assets/images/banner4.png'
+          }]
+        }, {
+          'InputName': 'Period',
+          'InputData': 2000
         }]
         this.AdService.creatComponent(viewContainerRef, 'ad1', params);
-        setTimeout(() => { this.AdService.updataInput('Title', '改變Ad的文字'); }, 1000);
+        setTimeout(() => { 
+          this.AdService.updataInput('Title', '速度:1s'); 
+          this.AdService.updataInput('Period', 1000); 
+        }, 4000);
         break;
 
       case 2:
@@ -55,7 +72,7 @@ export class PageOneComponent implements OnInit, OnDestroy, AfterContentInit {
       case 3:
         this.AdService.creatComponent(viewContainerRef, 'ad3');
         let join$ = this.AdService.getOutput('JoinEvent');
-        this.JoinSubscription = join$.subscribe((event) => { this.router.navigate(['/join']);});
+        this.JoinSubscription = join$.subscribe((event) => { this.router.navigate(['/join']); });
         break;
 
       default:
@@ -68,8 +85,8 @@ export class PageOneComponent implements OnInit, OnDestroy, AfterContentInit {
     }
     // 關閉Ad
     let close$ = this.AdService.getOutput('CloseEvent');
-    this.CloseSubscription = close$.subscribe((event) => { 
-      this.AdService.onClear(); 
+    this.CloseSubscription = close$.subscribe((event) => {
+      this.AdService.onClear();
       this.allSubscriptionUnsubscribe();
     });
   }
@@ -78,10 +95,9 @@ export class PageOneComponent implements OnInit, OnDestroy, AfterContentInit {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  allSubscriptionUnsubscribe(){
+  allSubscriptionUnsubscribe() {
     if (this.CloseSubscription) { this.CloseSubscription.unsubscribe(); }
     if (this.JoinSubscription) { this.JoinSubscription.unsubscribe(); }
-    if (this.AdService.isPresent()) { this.AdService.onDestroy(); }
   }
 
   ngOnInit() {
@@ -89,6 +105,7 @@ export class PageOneComponent implements OnInit, OnDestroy, AfterContentInit {
 
   ngOnDestroy() {
     this.allSubscriptionUnsubscribe();
+    this.AdService.onDestroy();
   }
 
 }

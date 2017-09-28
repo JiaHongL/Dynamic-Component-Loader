@@ -1,4 +1,8 @@
+import { Subscription } from 'rxjs/Subscription';
 import { Component, OnInit, Output, Input, EventEmitter, OnDestroy } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/timer';
+
 
 @Component({
   selector: 'app-ad-1',
@@ -6,6 +10,10 @@ import { Component, OnInit, Output, Input, EventEmitter, OnDestroy } from '@angu
   styleUrls: ['./ad-1.component.scss']
 })
 export class Ad1Component implements OnInit, OnDestroy {
+  _bannerList: [{ url: string }];
+  _period: number;
+  TimerSubscription: Subscription;
+  backgroundImg: string = 'assets/images/banner1.png';
   _title: string;
 
   @Input()
@@ -17,19 +25,54 @@ export class Ad1Component implements OnInit, OnDestroy {
     return this._title;
   }
 
+  @Input()
+  set BannerList(v: [{ url: string }]) {
+    this._bannerList = v;
+  }
+
+  get BannerList() {
+    return this._bannerList;
+  }
+
+  @Input()
+  set Period(v: number) {
+    this._period = v;
+    this.setBanner(this.BannerList, this.Period);
+  }
+
+  get Period() {
+    return this._period;
+  }
+
+
   @Output() CloseEvent = new EventEmitter();
 
-  constructor() {}
-  
+  constructor() {
+  }
+
   colse() {
     this.CloseEvent.emit();
+  }
+
+  setBanner(BannerList, Period) {
+    if (this.TimerSubscription) { this.TimerSubscription.unsubscribe(); }
+    let count = BannerList.length - 1;
+    let i = 0;
+    this.TimerSubscription = Observable.timer(0, Period).subscribe((v) => {
+      this.backgroundImg = BannerList[i].url;
+      i++;
+      if (i > count) { i = 0 };
+    })
   }
 
   ngOnInit() {
     console.log('Ad1Component Created :' + new Date());
   }
 
+
+
   ngOnDestroy() {
+    this.TimerSubscription.unsubscribe();
     console.log('Ad1Component OnDestroy :' + new Date());
   }
 

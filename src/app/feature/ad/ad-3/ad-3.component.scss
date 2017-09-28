@@ -9,24 +9,28 @@
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  background:#8F0F8F;
+  background-image:url('../../../../assets/images/banner4.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  
   .btn {
     flex: 0 0 auto;
-    padding:5px 15px 5px 15px;
+    padding: 5px 50px 5px 50px;
     border-radius: 10px;
     font-size: 21px;
     font-weight: 600;
     line-height: 42px;
-    background: #4ca74c;
+    background-color: rgba(181, 33, 255, 0.85);
     color: white;
     letter-spacing: 1px;
     &:hover {
-      background: #408840;
+      background-color: #A807F8;
     }
   }
   .ad-close {
     position: absolute;
     right: -10px;
     top: -8px;
+    color: black;
   }
 }

@@ -34,7 +34,21 @@ export class PageTwoComponent implements OnInit, AfterContentInit, OnDestroy {
       case 1:
         params = [{
           'InputName': 'Title',
-          'InputData': '文字AD'
+          'InputData': '3s輪播'
+        }, {
+          'InputName': 'BannerList',
+          'InputData': [{
+            url: 'assets/images/banner1.png'
+          }, {
+            url: 'assets/images/banner2.png'
+          }, {
+            url: 'assets/images/banner3.png'
+          },{
+            url: 'assets/images/banner4.png'
+          }]
+        },{
+          'InputName': 'Period',
+          'InputData': 3000
         }]
         this.AdService.creatComponent(viewContainerRef, 'ad1', params);
         break;
@@ -72,7 +86,6 @@ export class PageTwoComponent implements OnInit, AfterContentInit, OnDestroy {
   allSubscriptionUnsubscribe() {
     if (this.CloseSubscription) { this.CloseSubscription.unsubscribe(); }
     if (this.JoinSubscription) { this.JoinSubscription.unsubscribe(); }
-    if (this.AdService.isPresent()) { this.AdService.onDestroy(); }
   }
 
   ngAfterContentInit() {
@@ -84,6 +97,7 @@ export class PageTwoComponent implements OnInit, AfterContentInit, OnDestroy {
 
   ngOnDestroy() {
     this.allSubscriptionUnsubscribe();
+    this.AdService.onDestroy();
   }
 
 }

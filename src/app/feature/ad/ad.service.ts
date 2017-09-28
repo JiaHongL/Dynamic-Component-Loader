@@ -20,7 +20,7 @@ export class AdService {
     this.createComponentFactory(ViewContainerRef, ComponentName, Inputs);
   }
 
-  private createComponentFactory(ViewContainerRef: ViewContainerRef, ComponentName: string, Inputs: Array<object>) {
+  private createComponentFactory(ViewContainerRef: ViewContainerRef, ComponentName: string, Inputs?: Array<object>) {
     // 如果已經有component時,先讓component做OnDestroy的動作.
     if (this.currentComponentRef) { this.onDestroy(); };
 
@@ -38,14 +38,13 @@ export class AdService {
 
   private setInputs(Inputs: Array<object>) {
     Inputs.forEach((val, index) => {
-      let name = val['InputName'];
-      let data = val['InputData'];
+      let name = val['InputName'], data = val['InputData'];
       this.currentComponentRef.instance[name] = data;
     })
   }
 
   // 更新賦值
-  updataInput(InputName: string, InputData: object | string) {
+  updataInput(InputName: string, InputData: object | string | number) {
     this.currentComponentRef.instance[InputName] = InputData;
   }
 
@@ -54,20 +53,17 @@ export class AdService {
     return this.currentComponentRef.instance[OutputName];
   }
 
-  isPresent(){
-    return this.currentComponentRef;
-  }
-
   // 被創建Component的ondestroy
   onDestroy() {
     this.currentComponentRef.destroy();
-    console.log('this.currentComponentRef.destroy()');
+    console.log('AdService.onDestroy()');
   }
 
   // 清除view 和 被創建Component的ondestroy
   onClear() {
     this.currentViewContainerRef.clear();
     this.currentComponentRef.destroy();
+    console.log('AdService.onClear()');
   }
 
 }

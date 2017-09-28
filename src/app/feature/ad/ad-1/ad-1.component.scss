@@ -9,8 +9,10 @@
   flex-flow: row nowrap;
   justify-content:center;
   align-items: center;
-  background:greenyellow;
-
+  background:blanchedalmond;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: white;
   .title{
     flex: 0 0 auto;
     font-size:100px;
@@ -19,5 +21,6 @@
       position: absolute;
       right:-10px;
       top:-8px;
+      color: black;
   }
 }
