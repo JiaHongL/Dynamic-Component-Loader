@@ -12,7 +12,7 @@ import { Ad3Component } from './ad-3/ad-3.component';
   ],
   declarations: [AdDirective, Ad1Component, Ad2Component, Ad3Component],
   exports: [AdDirective],
-  entryComponents: [Ad1Component, Ad2Component,Ad3Component],
+  entryComponents: [Ad1Component, Ad2Component, Ad3Component],
   providers: [AdService]
 })
 export class AdModule { }

@@ -35,7 +35,7 @@ export class PageOneComponent implements OnInit, OnDestroy, AfterContentInit {
       case 1:
         params = [{
           'InputName': 'Title',
-          'InputData': '速度:2s'
+          'InputData': '速度:4s'
         }, {
           'InputName': 'BannerList',
           'InputData': [{
@@ -49,15 +49,10 @@ export class PageOneComponent implements OnInit, OnDestroy, AfterContentInit {
           }]
         }, {
           'InputName': 'Period',
-          'InputData': 2000
+          'InputData': 4000
         }]
         this.AdService.creatComponent(viewContainerRef, 'ad1', params);
-        setTimeout(() => { 
-          this.AdService.updataInput('Title', '速度:1s'); 
-          this.AdService.updataInput('Period', 1000); 
-        }, 4000);
         break;
-
       case 2:
         params = [{
           'InputName': 'Url',
@@ -83,6 +78,7 @@ export class PageOneComponent implements OnInit, OnDestroy, AfterContentInit {
         this.AdService.creatComponent(viewContainerRef, 'ad1', params);
         break;
     }
+    
     // 關閉Ad
     let close$ = this.AdService.getOutput('CloseEvent');
     this.CloseSubscription = close$.subscribe((event) => {

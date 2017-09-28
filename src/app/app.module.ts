@@ -11,6 +11,7 @@ import { NgxLoremIpsumModule } from 'ngx-lorem-ipsum';
 import { PageOneComponent } from './pages/page-one/page-one.component';
 import { PageTwoComponent } from './pages/page-two/page-two.component';
 import { PageSignupComponent } from './pages/page-signup/page-signup.component';
+import { FormsModule } from "@angular/forms";
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { PageSignupComponent } from './pages/page-signup/page-signup.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     NgxLoremIpsumModule,
     AdModule
   ],

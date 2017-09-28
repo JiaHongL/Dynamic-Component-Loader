@@ -37,7 +37,6 @@ export class Ad1Component implements OnInit, OnDestroy {
   @Input()
   set Period(v: number) {
     this._period = v;
-    this.setBanner(this.BannerList, this.Period);
   }
 
   get Period() {
@@ -66,6 +65,7 @@ export class Ad1Component implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.setBanner(this.BannerList, this.Period);
     console.log('Ad1Component Created :' + new Date());
   }
 

@@ -15,11 +15,12 @@ export class PageTwoComponent implements OnInit, AfterContentInit, OnDestroy {
   JoinSubscription: Subscription;
   randomText: string;
   randomTitle: string;
+  AdTitle: string;
   @ViewChild(AdDirective) componentHost: AdDirective;
 
   constructor(
     private NgxLoremIpsumService: NgxLoremIpsumService,
-    private AdService: AdService,
+    public AdService: AdService,
     private router: Router
   ) {
     this.randomTitle = this.NgxLoremIpsumService.get(1);
@@ -32,9 +33,10 @@ export class PageTwoComponent implements OnInit, AfterContentInit, OnDestroy {
     let params = [];
     switch (type) {
       case 1:
+        this.AdTitle = '可修改文字';
         params = [{
           'InputName': 'Title',
-          'InputData': '3s輪播'
+          'InputData': this.AdTitle
         }, {
           'InputName': 'BannerList',
           'InputData': [{
@@ -43,10 +45,10 @@ export class PageTwoComponent implements OnInit, AfterContentInit, OnDestroy {
             url: 'assets/images/banner2.png'
           }, {
             url: 'assets/images/banner3.png'
-          },{
+          }, {
             url: 'assets/images/banner4.png'
           }]
-        },{
+        }, {
           'InputName': 'Period',
           'InputData': 3000
         }]
@@ -83,13 +85,17 @@ export class PageTwoComponent implements OnInit, AfterContentInit, OnDestroy {
     this.CloseSubscription = close$.subscribe((event) => { this.AdService.onClear(); });
   }
 
+  updateAction(v: string | number) {
+    this.AdService.updataInput('Title', v);
+  }
+
   allSubscriptionUnsubscribe() {
     if (this.CloseSubscription) { this.CloseSubscription.unsubscribe(); }
     if (this.JoinSubscription) { this.JoinSubscription.unsubscribe(); }
   }
 
   ngAfterContentInit() {
-    this.createAD(3);
+    this.createAD(1);
   }
 
   ngOnInit() {

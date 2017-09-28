@@ -1,6 +1,9 @@
-<button class="btn" (click)="createAD(1)">圖片廣告</button>
-<button class="btn" (click)="createAD(2)">影片廣告</button>
-<button class="btn" (click)="createAD(3)">註冊廣告</button>
+<button class="btn btn-outline-primary" [ngClass]="{active: AdService.currentComponentName=='Ad1Component'}" (click)="createAD(1)">圖片廣告</button>
+<input type="" name="" [ngModel]="AdTitle" (ngModelChange)="updateAction($event)"  *ngIf="AdService.currentComponentName=='Ad1Component'">
+<button class="btn btn-outline-primary" [ngClass]="{active: AdService.currentComponentName=='Ad2Component'}" (click)="createAD(2)">影片廣告</button>
+<button class="btn btn-outline-primary" [ngClass]="{active: AdService.currentComponentName=='Ad3Component'}" (click)="createAD(3)">註冊廣告</button>
+
+
 <h1 class="title" [innerHTML]="randomTitle"></h1>
 <ng-template dynamic-Ad></ng-template>
 <div class="content" [innerHTML]="randomText"></div>

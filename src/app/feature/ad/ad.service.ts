@@ -5,6 +5,7 @@ import { Injectable, ComponentRef, ComponentFactoryResolver, ViewContainerRef } 
 
 @Injectable()
 export class AdService {
+  currentComponentName: string;
 
   private currentComponentRef: ComponentRef<any>;
   private currentViewContainerRef: ViewContainerRef;
@@ -34,6 +35,8 @@ export class AdService {
     this.currentComponentRef = this.currentViewContainerRef.createComponent(componentFactory);
     // 5.設定component的Input欄位(初始化賦值)
     if (Inputs) { this.setInputs(Inputs); };
+    
+    this.currentComponentName = this.currentComponentRef.componentType.name;
   }
 
   private setInputs(Inputs: Array<object>) {
