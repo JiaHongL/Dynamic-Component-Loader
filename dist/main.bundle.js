@@ -910,7 +910,7 @@ PageSignupComponent = __decorate([
 /***/ "../../../../../src/app/pages/page-two/page-two.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>目前元件：{{AdService.currentComponentName}}</p>\n<button class=\"btn btn-outline-primary\" [ngClass]=\"{active: AdService.currentComponentName=='Ad1Component'}\" (click)=\"createAD(1)\">圖片廣告</button>\n<input type=\"\" name=\"\" [ngModel]=\"AdTitle\" (ngModelChange)=\"updateAction($event)\"  *ngIf=\"AdService.currentComponentName=='Ad1Component'\">\n<button class=\"btn btn-outline-primary\" [ngClass]=\"{active: AdService.currentComponentName=='Ad2Component'}\" (click)=\"createAD(2)\">影片廣告</button>\n<button class=\"btn btn-outline-primary\" [ngClass]=\"{active: AdService.currentComponentName=='Ad3Component'}\" (click)=\"createAD(3)\">註冊廣告</button>\n\n\n<h1 class=\"title\" [innerHTML]=\"randomTitle\"></h1>\n<ng-template dynamic-Ad></ng-template>\n<div class=\"content\" [innerHTML]=\"randomText\"></div>\n"
+module.exports = "<button class=\"btn btn-outline-primary\" [ngClass]=\"{active: AdService.currentComponentName=='Ad1Component'}\" (click)=\"createAD(1)\">圖片廣告</button>\n<input type=\"\" name=\"\" [ngModel]=\"AdTitle\" (ngModelChange)=\"updateAction($event)\"  *ngIf=\"AdService.currentComponentName=='Ad1Component'\">\n<button class=\"btn btn-outline-primary\" [ngClass]=\"{active: AdService.currentComponentName=='Ad2Component'}\" (click)=\"createAD(2)\">影片廣告</button>\n<button class=\"btn btn-outline-primary\" [ngClass]=\"{active: AdService.currentComponentName=='Ad3Component'}\" (click)=\"createAD(3)\">註冊廣告</button>\n\n<h1 class=\"title\" [innerHTML]=\"randomTitle\"></h1>\n<ng-template dynamic-Ad></ng-template>\n<div class=\"content\" [innerHTML]=\"randomText\"></div>\n"
 
 /***/ }),
 
