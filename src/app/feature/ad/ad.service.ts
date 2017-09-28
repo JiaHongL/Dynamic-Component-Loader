@@ -7,7 +7,7 @@ import { Injectable, ComponentRef, ComponentFactoryResolver, ViewContainerRef } 
 export class AdService {
   currentComponentName: string;
 
-  private currentComponentRef: ComponentRef<any>;
+  currentComponentRef: ComponentRef<any>;
   private currentViewContainerRef: ViewContainerRef;
   private components = {
     ad1: Ad1Component,
