@@ -36,9 +36,8 @@ export class AdService {
     // 5.設定component的Input欄位(初始化賦值)
     if (Inputs) { this.setInputs(Inputs); };
 
-    this.currentComponentName =  this.currentComponentRef.componentType['name'];
-    console.log(this.currentComponentRef.componentType['name']);
-    console.log(this.currentComponentName);
+    // ng build 正常 , 但 ng build -prod 會有問題 , 待解決. 
+    this.currentComponentName = this.currentComponentRef.componentType.name;
   }
 
   private setInputs(Inputs: Array<object>) {
