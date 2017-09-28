@@ -21,7 +21,7 @@ export class AdService {
     this.createComponentFactory(ViewContainerRef, ComponentName, Inputs);
   }
 
-  private async createComponentFactory(ViewContainerRef: ViewContainerRef, ComponentName: string, Inputs?: Array<object>) {
+  private createComponentFactory(ViewContainerRef: ViewContainerRef, ComponentName: string, Inputs?: Array<object>) {
     // 如果已經有component時,先讓component做OnDestroy的動作.
     if (this.currentComponentRef) { this.onDestroy(); };
 
@@ -36,7 +36,8 @@ export class AdService {
     // 5.設定component的Input欄位(初始化賦值)
     if (Inputs) { this.setInputs(Inputs); };
 
-    this.currentComponentName =  await componentFactory.componentType.name;
+    this.currentComponentName =  this.currentComponentRef.componentType['name'];
+    console.log(this.currentComponentRef.componentType['name']);
     console.log(this.currentComponentName);
   }
 
