@@ -37,6 +37,8 @@ export class AdService {
     if (Inputs) { this.setInputs(Inputs); };
     
     this.currentComponentName = this.currentComponentRef.componentType.name;
+    console.log(this.currentComponentRef.componentType.name);
+    console.log(this.currentComponentName);
   }
 
   private setInputs(Inputs: Array<object>) {
