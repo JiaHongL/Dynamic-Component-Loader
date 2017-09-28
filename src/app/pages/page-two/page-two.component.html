@@ -1,3 +1,4 @@
+<p>目前元件：{{AdService.currentComponentName}}</p>
 <button class="btn btn-outline-primary" [ngClass]="{active: AdService.currentComponentName=='Ad1Component'}" (click)="createAD(1)">圖片廣告</button>
 <input type="" name="" [ngModel]="AdTitle" (ngModelChange)="updateAction($event)"  *ngIf="AdService.currentComponentName=='Ad1Component'">
 <button class="btn btn-outline-primary" [ngClass]="{active: AdService.currentComponentName=='Ad2Component'}" (click)="createAD(2)">影片廣告</button>
