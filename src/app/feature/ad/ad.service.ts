@@ -35,18 +35,10 @@ export class AdService {
     this.currentComponentRef = this.currentViewContainerRef.createComponent(componentFactory);
     // 5.設定component的Input欄位(初始化賦值)
     if (Inputs) { this.setInputs(Inputs); };
-    
-    this.currentComponentName = this.currentComponentRef.componentType.name;
-    console.log(this.currentComponentRef);
-    console.log(this.currentComponentRef.componentType);
-    console.log(this.currentComponentRef.componentType.name);
+
+    this.currentComponentName = componentFactory.componentType.name;
+    console.log(componentFactory.componentType.name);
     console.log(this.currentComponentName);
-    setTimeout(() => {
-      console.log(this.currentComponentRef.componentType.name);
-    }, 0);
-    setTimeout(() => {
-      console.log(this.currentComponentRef.componentType.name);
-    }, 1000);
   }
 
   private setInputs(Inputs: Array<object>) {
