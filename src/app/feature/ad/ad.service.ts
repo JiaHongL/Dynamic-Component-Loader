@@ -41,6 +41,12 @@ export class AdService {
     console.log(this.currentComponentRef.componentType);
     console.log(this.currentComponentRef.componentType.name);
     console.log(this.currentComponentName);
+    setTimeout(() => {
+      console.log(this.currentComponentRef.componentType.name);
+    }, 0);
+    setTimeout(() => {
+      console.log(this.currentComponentRef.componentType.name);
+    }, 1000);
   }
 
   private setInputs(Inputs: Array<object>) {
