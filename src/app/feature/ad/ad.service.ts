@@ -36,8 +36,8 @@ export class AdService {
     // 5.設定component的Input欄位(初始化賦值)
     if (Inputs) { this.setInputs(Inputs); };
 
-    // ng serve / ng build  正常 , 
-    // 但 ng serve --prod /ng serve --aot 和 ng build --prod /ng serve --aot 會有問題 , 待解決. 
+    // ng serve /ng serve --aot=true / ng build  正常 , 
+    // 但 ng serve --prod / ng build --prod  會有問題 , 待解決. 
     this.currentComponentName = this.currentComponentRef.componentType.name;
     console.log(this.currentComponentRef.componentType); // 正常時 console.log 立即顯示,有問題時會慢幾秒顯示.
     console.log(this.currentComponentRef.componentType.name); //正常時得到 component name,有問題時得到 n.
