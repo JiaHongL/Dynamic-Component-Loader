@@ -64,14 +64,14 @@ export class AdService {
   // 被創建Component的ondestroy
   onDestroy() {
     this.currentComponentRef.destroy();
-    console.log('AdService.onDestroy()');
+    // console.log('AdService.onDestroy()');
   }
 
   // 清除view 和 被創建Component的ondestroy
   onClear() {
     this.currentViewContainerRef.clear();
     this.currentComponentRef.destroy();
-    console.log('AdService.onClear()');
+    // console.log('AdService.onClear()');
   }
 
 }

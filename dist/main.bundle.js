@@ -287,11 +287,11 @@ var Ad1Component = (function () {
     };
     Ad1Component.prototype.ngOnInit = function () {
         this.setBanner(this.BannerList, this.Period);
-        console.log('Ad1Component Created :' + new Date());
+        // console.log('Ad1Component Created :' + new Date());
     };
     Ad1Component.prototype.ngOnDestroy = function () {
         this.TimerSubscription.unsubscribe();
-        console.log('Ad1Component OnDestroy :' + new Date());
+        // console.log('Ad1Component OnDestroy :' + new Date());
     };
     return Ad1Component;
 }());
@@ -402,10 +402,10 @@ var Ad2Component = (function () {
         this.CloseEvent.emit();
     };
     Ad2Component.prototype.ngOnInit = function () {
-        console.log('Ad2Component Created :' + new Date());
+        // console.log('Ad2Component Created :' + new Date());
     };
     Ad2Component.prototype.ngOnDestroy = function () {
-        console.log('Ad2Component OnDestroy :' + new Date());
+        // console.log('Ad2Component OnDestroy :' + new Date());
     };
     return Ad2Component;
 }());
@@ -493,10 +493,10 @@ var Ad3Component = (function () {
         this.JoinEvent.emit();
     };
     Ad3Component.prototype.ngOnInit = function () {
-        console.log('Ad3Component Created :' + new Date());
+        // console.log('Ad3Component Created :' + new Date());
     };
     Ad3Component.prototype.ngOnDestroy = function () {
-        console.log('Ad3Component OnDestroy :' + new Date());
+        // console.log('Ad3Component OnDestroy :' + new Date());
     };
     return Ad3Component;
 }());
@@ -678,13 +678,13 @@ var AdService = (function () {
     // 被創建Component的ondestroy
     AdService.prototype.onDestroy = function () {
         this.currentComponentRef.destroy();
-        console.log('AdService.onDestroy()');
+        // console.log('AdService.onDestroy()');
     };
     // 清除view 和 被創建Component的ondestroy
     AdService.prototype.onClear = function () {
         this.currentViewContainerRef.clear();
         this.currentComponentRef.destroy();
-        console.log('AdService.onClear()');
+        // console.log('AdService.onClear()');
     };
     return AdService;
 }());

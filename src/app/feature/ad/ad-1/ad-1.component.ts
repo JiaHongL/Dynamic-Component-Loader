@@ -66,14 +66,14 @@ export class Ad1Component implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.setBanner(this.BannerList, this.Period);
-    console.log('Ad1Component Created :' + new Date());
+    // console.log('Ad1Component Created :' + new Date());
   }
 
 
 
   ngOnDestroy() {
     this.TimerSubscription.unsubscribe();
-    console.log('Ad1Component OnDestroy :' + new Date());
+    // console.log('Ad1Component OnDestroy :' + new Date());
   }
 
 }

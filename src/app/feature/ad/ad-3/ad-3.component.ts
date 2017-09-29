@@ -24,10 +24,10 @@ export class Ad3Component implements OnInit ,OnDestroy {
   }
   
   ngOnInit() {
-    console.log('Ad3Component Created :' + new Date());
+    // console.log('Ad3Component Created :' + new Date());
   }
 
   ngOnDestroy() {
-    console.log('Ad3Component OnDestroy :' + new Date());
+    // console.log('Ad3Component OnDestroy :' + new Date());
   }
 }

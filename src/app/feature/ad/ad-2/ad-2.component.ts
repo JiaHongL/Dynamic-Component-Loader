@@ -36,11 +36,11 @@ export class Ad2Component implements  OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log('Ad2Component Created :' + new Date());
+    // console.log('Ad2Component Created :' + new Date());
   }
 
   ngOnDestroy() {
-    console.log('Ad2Component OnDestroy :' + new Date());
+    // console.log('Ad2Component OnDestroy :' + new Date());
   }
 
 }
