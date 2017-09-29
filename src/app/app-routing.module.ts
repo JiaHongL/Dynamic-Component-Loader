@@ -17,7 +17,7 @@ const routes: Routes = [
   ,
   {
     path: '**',
-    redirectTo: 'page1',
+    redirectTo: 'page2',
     pathMatch: 'full'
   }
 ];
