@@ -68,11 +68,10 @@ export class AdService {
     // console.log('AdService.onDestroy()');
   }
 
-  // 清除view 和 被創建Component的ondestroy
+  // 清除view 和 onDestroy()
   onClear() {
     this.currentViewContainerRef.clear();
-    this.currentComponentRef.destroy();
-    this.currentComponentName = '';
+    this.onDestroy();
     // console.log('AdService.onClear()');
   }
 
