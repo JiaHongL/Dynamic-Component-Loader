@@ -64,6 +64,7 @@ export class AdService {
   // 被創建Component的ondestroy
   onDestroy() {
     this.currentComponentRef.destroy();
+    this.currentComponentName = '';
     // console.log('AdService.onDestroy()');
   }
 
@@ -71,6 +72,7 @@ export class AdService {
   onClear() {
     this.currentViewContainerRef.clear();
     this.currentComponentRef.destroy();
+    this.currentComponentName = '';
     // console.log('AdService.onClear()');
   }
 

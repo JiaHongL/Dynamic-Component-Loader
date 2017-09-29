@@ -678,12 +678,14 @@ var AdService = (function () {
     // 被創建Component的ondestroy
     AdService.prototype.onDestroy = function () {
         this.currentComponentRef.destroy();
+        this.currentComponentName = '';
         // console.log('AdService.onDestroy()');
     };
     // 清除view 和 被創建Component的ondestroy
     AdService.prototype.onClear = function () {
         this.currentViewContainerRef.clear();
         this.currentComponentRef.destroy();
+        this.currentComponentName = '';
         // console.log('AdService.onClear()');
     };
     return AdService;
