@@ -72,7 +72,7 @@ AppRoutingModule = __decorate([
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page\">\n  <!-- header -->\n  <div class=\"page-header\">\n    <nav class=\"menu\">\n      <ul>\n        <li><a href=\"#\" [routerLink]=\"['/page1']\">Page1</a></li>\n        <li><a href=\"#\" [routerLink]=\"['/page2']\">Page2</a></li>\n        <li><a href=\"#\" [routerLink]=\"['/join']\">Join</a></li>\n      </ul>\n    </nav>\n  </div>\n  <!-- header -->\n  <!-- page -->\n  <div class=\"page-content\">\n    <router-outlet></router-outlet>\n  </div>\n  <!-- page end-->\n</div>\n"
+module.exports = "<div class=\"page\">\n  <!-- header -->\n  <div class=\"page-header\">\n    <nav class=\"menu\">\n      <ul>\n        <li><a href=\"#\" routerLinkActive=\"active\" [routerLink]=\"['/page1']\">Page1</a></li>\n        <li><a href=\"#\" routerLinkActive=\"active\" [routerLink]=\"['/page2']\">Page2</a></li>\n        <li><a href=\"#\" routerLinkActive=\"active\" [routerLink]=\"['/join']\">Join</a></li>\n      </ul>\n    </nav>\n  </div>\n  <!-- header -->\n  <!-- page -->\n  <div class=\"page-content\">\n    <router-outlet></router-outlet>\n  </div>\n  <!-- page end-->\n</div>\n"
 
 /***/ }),
 
@@ -84,7 +84,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".page {\n  margin: 5px 80px 5px 80px; }\n  .page .page-header .menu {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-flow: row nowrap;\n            flex-flow: row nowrap;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    background: #808080;\n    height: 50px; }\n    .page .page-header .menu ul {\n      -webkit-box-flex: 1;\n          -ms-flex: 1 1 100%;\n              flex: 1 1 100%;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: horizontal;\n      -webkit-box-direction: normal;\n          -ms-flex-flow: row nowrap;\n              flex-flow: row nowrap;\n      -webkit-box-pack: end;\n          -ms-flex-pack: end;\n              justify-content: flex-end; }\n      .page .page-header .menu ul li {\n        -webkit-box-flex: 0;\n            -ms-flex: 0 0 80px;\n                flex: 0 0 80px; }\n        .page .page-header .menu ul li a {\n          color: white; }\n  .page .page-content {\n    padding: 30px; }\n", ""]);
+exports.push([module.i, ".page {\n  margin: 5px 80px 5px 80px; }\n  .page .page-header .menu {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-flow: row nowrap;\n            flex-flow: row nowrap;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    background: #808080;\n    height: 50px; }\n    .page .page-header .menu ul {\n      -webkit-box-flex: 1;\n          -ms-flex: 1 1 100%;\n              flex: 1 1 100%;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: horizontal;\n      -webkit-box-direction: normal;\n          -ms-flex-flow: row nowrap;\n              flex-flow: row nowrap;\n      -webkit-box-pack: end;\n          -ms-flex-pack: end;\n              justify-content: flex-end; }\n      .page .page-header .menu ul li {\n        -webkit-box-flex: 0;\n            -ms-flex: 0 0 80px;\n                flex: 0 0 80px; }\n        .page .page-header .menu ul li a {\n          color: white; }\n        .page .page-header .menu ul li .active {\n          color: blue;\n          font-weight: 500; }\n  .page .page-content {\n    padding: 30px; }\n", ""]);
 
 // exports
 
@@ -109,7 +109,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'app';
     }
     return AppComponent;
 }());
