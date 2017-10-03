@@ -30,7 +30,7 @@ import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@a
     NgxLoremIpsumModule,
     AdModule
   ],
-  providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
