@@ -30,7 +30,7 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: [
     { provide: LocationStrategy, useClass: PathLocationStrategy },
-    { provide: APP_BASE_HREF, useValue: '/' }
+    { provide: APP_BASE_HREF, useValue: '/Dynamic-Component-Loader/dist/' }
   ]
 })
 export class AppRoutingModule { }
