@@ -13,6 +13,8 @@ import { PageTwoComponent } from './pages/page-two/page-two.component';
 import { PageSignupComponent } from './pages/page-signup/page-signup.component';
 import { FormsModule } from "@angular/forms";
 
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { FormsModule } from "@angular/forms";
     NgxLoremIpsumModule,
     AdModule
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

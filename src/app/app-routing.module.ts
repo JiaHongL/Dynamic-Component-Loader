@@ -3,7 +3,6 @@ import { PageTwoComponent } from './pages/page-two/page-two.component';
 import { PageOneComponent } from './pages/page-one/page-one.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { APP_BASE_HREF, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 const routes: Routes = [
   {
@@ -27,11 +26,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes)
   ],
-  exports: [RouterModule],
-  providers: [
-    { provide: LocationStrategy, useClass: PathLocationStrategy },
-    { provide: APP_BASE_HREF, useValue: '/Dynamic-Component-Loader/dist/' }
-  ]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
 
