@@ -13,7 +13,7 @@ import { PageTwoComponent } from './pages/page-two/page-two.component';
 import { PageSignupComponent } from './pages/page-signup/page-signup.component';
 import { FormsModule } from "@angular/forms";
 
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 
 @NgModule({
@@ -30,7 +30,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     NgxLoremIpsumModule,
     AdModule
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
